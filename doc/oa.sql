@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost_3306
-Source Server Version : 80000
+Source Server Version : 50528
 Source Host           : localhost:3306
 Source Database       : oa
 
 Target Server Type    : MYSQL
-Target Server Version : 80000
+Target Server Version : 50528
 File Encoding         : 65001
 
-Date: 2017-06-02 00:11:32
+Date: 2017-06-08 20:32:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,6 +34,21 @@ CREATE TABLE `attendance` (
 
 -- ----------------------------
 -- Records of attendance
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `image`
+-- ----------------------------
+DROP TABLE IF EXISTS `image`;
+CREATE TABLE `image` (
+  `id` int(11) NOT NULL,
+  `teacherid` int(11) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of image
 -- ----------------------------
 
 -- ----------------------------
@@ -103,13 +118,31 @@ CREATE TABLE `reimbursement` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `role_type`
+-- ----------------------------
+DROP TABLE IF EXISTS `role_type`;
+CREATE TABLE `role_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of role_type
+-- ----------------------------
+INSERT INTO `role_type` VALUES ('1', '决策者');
+INSERT INTO `role_type` VALUES ('2', '管理者');
+INSERT INTO `role_type` VALUES ('3', '普通用户');
+
+-- ----------------------------
 -- Table structure for `users`
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '登陆账户',
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户姓名',
-  `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户种类--‘普通教师’‘部门领导’‘学校领导’',
+  `type` int(20) NOT NULL COMMENT '用户种类--‘普通教师’‘部门领导’‘学校领导’',
   `age` int(11) DEFAULT NULL COMMENT '年龄',
   `address` text COLLATE utf8_unicode_ci COMMENT '家庭住址',
   `entryTime` datetime DEFAULT NULL COMMENT '入职时间',
@@ -124,10 +157,13 @@ CREATE TABLE `users` (
   `status` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '状态--‘在职’‘离职’',
   `registerBatch` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '注册批次',
   `password` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT '密码',
-  PRIMARY KEY (`Id`)
+  `gender` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `username` (`username`),
+  KEY `type` (`type`),
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`type`) REFERENCES `role_type` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '袁胜琼', '普通教师', '30', '湖北省武汉市', '2016-11-23 23:23:35', '教学部', '教师', '445221188708263254', '845236558@qq.com', '845236558', '湖北省武汉市', '15148565585', '15425655584', '在职', '2016秋', '1234');
