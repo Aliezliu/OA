@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-  hello,worldã€‚
+  hello,world
+  ${teacher.name}
+  ${teacher.entryTime }€‚
 </body>
 </html>
