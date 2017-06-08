@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>OA办公系统</title>
+<link href="css/new.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.accordion.min.css" rel="stylesheet" type="text/css">
+<script src="jQueryAssets/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="jQueryAssets/jquery-ui-1.9.2.accordion.custom.min.js" type="text/javascript"></script>
+<script src="script.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="1" >
+	<img src="images/办公.jpg" width="67" height="55" alt=""/>
+    <strong style="font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', serif; font-style: normal; font-weight: 900; font-size: x-large; text-align: center; color: #000000;">中兴科技办公管理系统</strong>
+ 
+</div>
+
+
+<div id="Accordion1" width="20%" >
+        <h3>教质部</h3>
+        <div>
+          <p><a href="" onClick="iframeFresh(this); return false;">教师咨询管理</a></p>
+          <p><a href="" onClick="iframeFresh(this); return false;">课程安排</a></p>
+        </div>
+        
+        
+        <h3>人事部</h3>
+        <div>
+          <p><a href="" onClick="iframeFresh(this); return false;">职工请假</a></p>
+          <p><a href="" onClick="iframeFresh(this); return false;">请假审批</a></p>
+        </div>
+        
+        
+        <h3>财务部</h3>
+        <div>
+          <p><a href="" onClick="iframeFresh(this); return false;">报销类型</a></p>
+          <p><a href="" onClick="iframeFresh(this); return false;">报销单详情</a></p>
+        </div>
+        
+        
+        <h3>教学部</h3>
+        <div>
+          <p><a href="" onClick="iframeFresh(this); return false;">教师简介</a></p>
+          <p><a href="" onClick="iframeFresh(this); return false;">查看课表</a></p>
+        </div>
+        
+        
+        <h3>个人中心</h3>
+        <div>
+            <p><a href="" onClick="iframeFresh(this); return false;">个人信息</a></p>
+            <p><a href="" onClick="iframeFresh(this); return false;">个人考勤</a></p>
+        </div>
+</div>
+
+
+<iframe id="fragment" src="个人信息.jsp" width="80%" height="500">
+</iframe>
+
+<script type="text/javascript">
+$(function() {
+	$( "#Accordion1" ).accordion(); 
+});
+</script>
+</body>
+</html>
