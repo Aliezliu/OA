@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.OA.mainsite.dao.TeacherMapper" >
+     <select id="selectByUsername" resultType="com.OA.mainsite.vo.TeacherVo">
+        select id,name,age,entryTime,address,job,department
+        from users
+        where username=#{username}
+     </select>
+     <select id="selectClassList" resultType="com.OA.mainsite.vo.LectureVo">
+         select l.id as id, u.name as teacher,l.type as type,l.time as time,l.name as name
+         from lectures l  left join users u
+         on l.teacherid=u.id 
+         where u.username=#{username}
+     </select>
+     <select id="selectTeacher" parameterType="com.OA.mainsite.entity.Teacher">
+     select u.id as id,u.name as name,u.identificationId as identificationid,
+     u.gender as gender,u.age as age,
+     u.department as department,u.address as address,
+     u.entryTime as entrytime ,u.status as status,u.phone as phone,
+     u.secondPhone as secondphone ,u.qq as qq , u.email as email,
+     u.nativePlace as nativeplace ,u.registerBatch as registerbatch,i.url as url
+     from users u left join image i on u.id=i.teacherid 
+     where u.username=#{username}
+     </select>
+</mapper>
