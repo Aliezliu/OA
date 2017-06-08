@@ -9,7 +9,8 @@
 		<param-value>
 		/WEB-INF/spring/root-context.xml,
 		/WEB-INF/spring/service-context.xml,
-		/WEB-INF/spring/persistence-context.xml
+		/WEB-INF/spring/persistence-context.xml,
+		/WEB-INF/spring/spring-shiro.xml
 		</param-value>
 	</context-param>
 
