@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/security")
 public class LoginController {
 	@RequestMapping("/")
 	public String index(){
@@ -41,9 +42,9 @@ public class LoginController {
 	    try {  
 	        subject.login(token);  
 	        if (subject.isAuthenticated()) {
-	            return "redirect:/";  
+	            return "redirect:/index";  
 	        } else {  
-	            return "workplatform";  
+	            return "login";  
 	        }  
 	    } catch (IncorrectCredentialsException e) {  
 	        msg = "登录密码错误. Password for account " + token.getPrincipal() + " was incorrect.";  
