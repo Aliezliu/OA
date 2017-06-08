@@ -53,7 +53,7 @@
 			<value>
 				/security/*=anon
 				/tag=authc
-			</value>
+			</value> 
 		</property>
 	</bean>
 
