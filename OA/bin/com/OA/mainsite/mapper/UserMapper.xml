@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.OA.mainsite.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.OA.mainsite.entity.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectById" resultType="com.OA.mainsite.entity.User">
+    select *
+    from user 
+    where id=#{id}
+  </select>
+</mapper>
