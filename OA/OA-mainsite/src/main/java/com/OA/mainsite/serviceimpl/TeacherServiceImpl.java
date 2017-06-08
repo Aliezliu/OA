@@ -31,7 +31,7 @@ public class TeacherServiceImpl implements TeacherService{
 
 	@Override
 	public Teacher selectTeacher(String username) {
-		
+		 
 		return teacherMapper.selectTeacher(username);
 	}
 
