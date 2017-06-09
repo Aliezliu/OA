@@ -49,7 +49,6 @@ public class OAController {
 		List<Lecture> Lectures = teacherService.selectLecturesByIdAndName(username, id, name);
 		model.addAttribute("Lectures", Lectures);	
 		return "searchClass";
-		
 	}
 	
 	@RequestMapping("/personMain")
