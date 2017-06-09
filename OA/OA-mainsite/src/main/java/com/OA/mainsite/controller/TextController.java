@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.OA.mainsite.entity.AttendType;
@@ -27,6 +28,8 @@ public class TextController {
 		return "index";
 		
 	}
+	
+	
 	@RequestMapping("/text1")
 	String text1(Model model){
 		
@@ -65,6 +68,10 @@ public class TextController {
 		model.addAttribute("selectTeacher", selectTeacher);
 		return "index";
 		
+	}
+	@RequestMapping("/{path}")
+	String login(@PathVariable("path") String path){
+		return path;
 	}
 	
      
