@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.OA.mainsite.dao.TeacherMapper;
+import com.OA.mainsite.entity.AttendType;
+import com.OA.mainsite.entity.Attendance;
+import com.OA.mainsite.entity.Lecture;
 import com.OA.mainsite.entity.Teacher;
 import com.OA.mainsite.service.TeacherService;
 import com.OA.mainsite.vo.LectureVo;
@@ -35,4 +38,24 @@ public class TeacherServiceImpl implements TeacherService{
 		return teacherMapper.selectTeacher(username);
 	}
 
+	@Override
+	public List<Attendance> selectAttendance(Integer result,String username) {
+		
+		return teacherMapper.selectAttendance(result,username);
+	}
+
+	@Override
+	public List<AttendType> selectAttendType() {
+		
+		return teacherMapper.selectAttendType();
+	}
+
+	@Override
+	public List<Lecture> selectLecturesByIdAndName(String username, Integer id, String name) {
+		
+		return teacherMapper.selectLecturesByIdAndName(username, id, name);
+	}
+	
+	
+    
 }

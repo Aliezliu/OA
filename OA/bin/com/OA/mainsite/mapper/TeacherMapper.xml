@@ -12,7 +12,7 @@
          on l.teacherid=u.id 
          where u.username=#{username}
      </select>
-     <select id="selectTeacher" parameterType="com.OA.mainsite.entity.Teacher">
+     <select id="selectTeacher" resultType="com.OA.mainsite.entity.Teacher">
      select u.id as id,u.name as name,u.identificationId as identificationid,
      u.gender as gender,u.age as age,
      u.department as department,u.address as address,
@@ -21,5 +21,33 @@
      u.nativePlace as nativeplace ,u.registerBatch as registerbatch,i.url as url
      from users u left join image i on u.id=i.teacherid 
      where u.username=#{username}
+     </select>
+     
+     <select id="selectAttendance" resultType="com.OA.mainsite.entity.Attendance">
+     select a.id ,a.morningStartTime as morningstarttime,
+     a.morningEndTime as morningendtime,
+     a.afterStartTime as afterstarttime,
+     a.afterEndTime as afterendtime
+     from attendance a left join users u on a.teacherid=u.id
+     where result=#{result} and u.username=#{username}
+     </select>
+     
+     <select id="selectAttendType" resultType="com.OA.mainsite.entity.AttendType">
+       select * 
+       from attend_type
+     </select>
+     
+     <select id="selectLecturesByIdAndName" resultType="com.OA.mainsite.entity.Lecture">
+         select l.name as name,l.id as id, l.time as time ,
+         l.type as type,l.grade as grade
+         from lectures l left join users u on l.teacherid=u.id
+         where
+         u.username=#{username}
+         <if test="id != null">
+           and l.id=#{id} 
+         </if>         
+          <if test="name != null">
+           and l.name=#{name}
+         </if>
      </select>
 </mapper>
