@@ -7,8 +7,6 @@
 	<title>登陆页面</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
-
-
 	
 	<style type="text/css">
 	  body {
@@ -18,7 +16,7 @@
 		padding: 9px 0;
 	  }
 	</style>
-	<link id="bs-css" href="<%=request.getContextPath() %>/resources/css/bootstrap-cerulean.css" rel="stylesheet">
+	<link href="<%=request.getContextPath() %>/resources/css/bootstrap-cerlean.css" id="bs-css" rel="stylesheet">
 	<link href="<%=request.getContextPath() %>/resources/css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="<%=request.getContextPath() %>/resources/css/charisma-app.css" rel="stylesheet">
 	<link href="<%=request.getContextPath() %>/resources/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
@@ -56,14 +54,14 @@
 					<div class="alert alert-info">
 						请使用用户名和密码登陆
 					</div>
-					<form class="form-horizontal" action="index.html" method="post">
+					<form class="form-horizontal" action="<%=request.getContextPath() %>/dologin" method="post">
 						<fieldset>
-							<div class="input-prepend" title="Username" data-rel="tooltip">
+							<div class="input-prepend" title="username" data-rel="tooltip">
 								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="username" id="username" type="text" value="" />
 							</div>
 							<div class="clearfix"></div>
 
-							<div class="input-prepend" title="Password" data-rel="tooltip">
+							<div class="input-prepend" title="password" data-rel="tooltip">
 								<span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="password" id="password" type="password" value="" />
 							</div>
 							<div class="clearfix"></div>

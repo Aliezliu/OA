@@ -27,9 +27,10 @@
      select a.id ,a.morningStartTime as morningstarttime,
      a.morningEndTime as morningendtime,
      a.afterStartTime as afterstarttime,
-     a.afterEndTime as afterendtime
+     a.afterEndTime as afterendtime,
+     a.result as result
      from attendance a left join users u on a.teacherid=u.id
-     where result=#{result} and u.username=#{username}
+     where a.result=#{result} and u.username=#{username}
      </select>
      
      <select id="selectAttendType" resultType="com.OA.mainsite.entity.AttendType">

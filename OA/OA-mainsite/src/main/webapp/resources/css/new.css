@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+#Accordion1{
+	float: left;
+}
+#1{
+	background: 0D19E8;
+}
+#fragment{
+	float: right;
+}
+hr{
+	margin-top:7px;
+    *margin: 0;
+    border: 0;
+    color: black;
+    background-color: black; 
+    height: 5px
+}

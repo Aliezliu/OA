@@ -31,12 +31,12 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/dologin")  
-	public String doLogin(@RequestParam String userName,@RequestParam String password, Model model) {  
+	public String doLogin(@RequestParam String username,@RequestParam String password, Model model) {  
 	    String msg = "";  
 //	    String userName = request.getParameter("userName");  
 //	    String password = request.getParameter("password");  
 	    
-	    UsernamePasswordToken token = new UsernamePasswordToken(userName, password);  
+	    UsernamePasswordToken token = new UsernamePasswordToken(username, password);  
 	    token.setRememberMe(true);  
 	    Subject subject = SecurityUtils.getSubject();  
 	    try {  

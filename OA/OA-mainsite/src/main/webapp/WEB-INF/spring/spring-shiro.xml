@@ -24,7 +24,6 @@
         <property name="credentialsMatcher" ref="credentialsMatcher"></property>
 		<property name="permissionsLookupEnabled" value="true"></property>
 		<property name="dataSource" ref="dataSource"></property>
-		
 		<property name="authenticationQuery" value="SELECT password FROM users WHERE username = ?"></property>
 		<property name="userRolesQuery" value="SELECT role_name from role_type r left join users u on r.id=u.type WHERE username = ?"></property>
 		<property name="permissionsQuery" value="SELECT role_name from role_type r left join users u on r.id=u.type WHERE username = ?"></property>
